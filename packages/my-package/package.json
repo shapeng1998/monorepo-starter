@@ -2,12 +2,33 @@
   "name": "my-package",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/src/index.js",
+  "main": "./dist/es/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "bunchee"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bunchee": "^5.1.5",
+    "typescript": "^5.2.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/es/index.js",
+  "types": "./dist/es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/es/index.d.ts",
+        "default": "./dist/es/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    }
+  }
 }
